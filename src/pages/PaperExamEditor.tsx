@@ -545,6 +545,7 @@ export default function PaperExamEditor() {
           class_id: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(classId) 
             ? classId 
             : '00000000-0000-0000-0000-000000000001', 
+          subject_id: '00000000-0000-0000-0000-000000000002', // Mock subject ID for testing
           title: examTitle,
           assessment_type: 'summative',
           method: 'qr_code', // Mobile scan mode
