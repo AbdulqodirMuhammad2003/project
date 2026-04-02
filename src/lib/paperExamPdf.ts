@@ -94,7 +94,7 @@ function blanksPerPage(blankH: number): number {
 export function setDMSans(doc: jsPDF, weight: 'normal' | 'bold') {
   try {
     doc.setFont('DMSans', weight);
-  } catch(e) {
+  } catch (e) {
     doc.setFont('helvetica', weight);
   }
 }
@@ -186,7 +186,7 @@ async function drawBlank(
   const questions = blank.variant.questions;
   const numQ = questions.length;
   const numOpts = Math.max(2, ...questions.map((q) => q.options.length));
-  
+
   const blankH = calcBlankHeight(numQ, numOpts);
 
   // Outer Frame
@@ -299,7 +299,7 @@ async function drawBlank(
       const tw = doc.getTextWidth(num);
       doc.text(num, gx + i * colW - tw / 2, cy + 2.5);
     }
-    
+
     cy += BLOCK_HEADER;
 
     // Bubble Rows
