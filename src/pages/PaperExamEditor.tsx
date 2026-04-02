@@ -542,7 +542,9 @@ export default function PaperExamEditor() {
         .from('assessments')
         .insert({
           teacher_id: user?.id || '00000000-0000-0000-0000-000000000000',
-          class_id: classId, // Assuming actual UUID here in real app
+          class_id: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(classId) 
+            ? classId 
+            : '00000000-0000-0000-0000-000000000001', 
           title: examTitle,
           assessment_type: 'summative',
           method: 'qr_code', // Mobile scan mode
